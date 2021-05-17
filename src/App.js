@@ -1,8 +1,10 @@
 import React from 'react';
+import PersonList from './PersonList';
+
 
 function App() {
   const value = 'Pricing Service';
-  return <div>Hello {value}</div>;
+  return <PersonList/>;
 }
 
 export default App;
