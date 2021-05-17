@@ -1,0 +1,83 @@
+{
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb-base"
+    ],
+    "plugins": [
+        "import",
+        "json",
+        "prettier"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "rules": {
+        "class-methods-use-this": 0,
+        "consistent-return": 0,
+        "func-names": [
+            "error",
+            "never"
+        ],
+        "import/prefer-default-export": "off",
+        "max-classes-per-file": [
+            "error",
+            3
+        ],
+        "no-debugger": 1,
+        "no-new": 0,
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
+        "no-restricted-globals": 0,
+        "no-unused-vars": 1,
+        "no-underscore-dangle": 1,
+        "no-use-before-define": 0,
+        "prefer-object-spread": 0,
+        "indent": [2, "tab"],
+        "no-tabs": 0,
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal"],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["react"],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+        "react/display-name": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "config/webpack.dev.js"
+            }
+        },
+        "react": {
+            "pragma": "React",
+            "version": "detect",
+            "flowVersion": "detect"
+        }
+    },
+    "parser": "babel-eslint"
+}

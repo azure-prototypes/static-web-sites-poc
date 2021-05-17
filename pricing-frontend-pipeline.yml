@@ -1,0 +1,42 @@
+trigger:
+    - develop
+
+name: ${{parameters.MAJOR}}.${{parameters.MINOR}}.$(Rev:rr)
+
+pool:
+    vmImage: 'ubuntu-20.04'
+
+parameters:
+    -   name: MAJOR
+        type: number
+        default: 0
+    -   name: MINOR
+        type: number
+        default: 0
+
+
+variables:
+    system.debug: true
+    patch: $[counter(variables['Build.SourceBranchName'],0)]
+    node-version: v15.5.1
+
+stages:
+    -   stage: BuildStage
+        displayName: Build
+        jobs:
+            -   job: BuidJob
+                steps:
+                    -   task: NodeTool@0
+                        displayName: Install Node.js
+                        inputs:
+                            versionSpec: $(node-version)
+
+                    -   script: yarn install
+                        displayName: Install Yarn
+
+                    -   script: yarn test
+                        displayName: Test UI
+
+                    -   script: yarn run build
+                        displayName: Build UI
+
