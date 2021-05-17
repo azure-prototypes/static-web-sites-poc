@@ -3,7 +3,6 @@ import PersonList from './PersonList';
 
 
 function App() {
-  const value = 'Pricing Service';
   return <PersonList/>;
 }
 
