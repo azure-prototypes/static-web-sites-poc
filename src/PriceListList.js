@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default class PriceListList extends React.Component {
   state = {
-    persons: []
+    priceListList: []
   }
 
   async componentDidMount() {
