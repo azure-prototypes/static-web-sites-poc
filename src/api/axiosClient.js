@@ -3,9 +3,9 @@ import axios from 'axios';
 import { appConfig, env } from 'constants/config';
 
 const client = axios.create({
-	baseURL: `http://20.49.139.146/pricing/api/`,
+	baseURL: `${appConfig.apiUrl}/pricing/api/`,
 	// TODO remove it after correct auth implementation on back-end
-	...({
+	...(process.env.NODE_ENV === env.development && 	{
 		headers: {
 			Authorization: `Basic ${process.env.API_TOKEN}`,
 		},
